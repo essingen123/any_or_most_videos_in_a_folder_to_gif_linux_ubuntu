@@ -36,6 +36,41 @@
         "documentation": {}
     },
     {
+        "label": "platform",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "platform",
+        "description": "platform",
+        "detail": "platform",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "generate_readme",
         "kind": 2,
         "importPath": "READMEmd_gen",
@@ -49,7 +84,7 @@
         "kind": 2,
         "importPath": "vid2gif_converter",
         "description": "vid2gif_converter",
-        "peekOfCode": "def install_ffmpeg():\n    print(\"📹 Installing ffmpeg...\")\n    try:\n        subprocess.run(['sudo', 'apt-get', 'install', 'ffmpeg'], check=True)\n    except:\n        try:\n            subprocess.run(['winget', 'install', 'ffmpeg'], check=True)\n        except:\n            print(\"Unsupported operating system. Please install ffmpeg manually.\")\ndef install_script():",
+        "peekOfCode": "def install_ffmpeg():\n    \"\"\"Install ffmpeg on the system\"\"\"\n    logging.info(\"Installing ffmpeg...\")\n    if platform.system() == \"Linux\":\n        package_managers = [\n            ['sudo', 'apt-get', 'install', 'ffmpeg'],\n            ['sudo', 'yum', 'install', 'ffmpeg'],\n            ['sudo', 'pacman', '-S', 'ffmpeg'],\n            ['sudo', 'zypper', 'install', 'ffmpeg']\n        ]",
         "detail": "vid2gif_converter",
         "documentation": {}
     },
@@ -58,7 +93,7 @@
         "kind": 2,
         "importPath": "vid2gif_converter",
         "description": "vid2gif_converter",
-        "peekOfCode": "def install_script():\n    print(\"📝 Installing script as command...\")\n    script_name = 'vid_gif_converter'\n    script_path = os.path.abspath(__file__)\n    try:\n        subprocess.run(['sudo', 'cp', script_path, '/usr/local/bin/' + script_name], check=True)\n        subprocess.run(['sudo', 'chmod', '+x', '/usr/local/bin/' + script_name], check=True)\n        print(f\"Installed {script_name} command successfully! 🎉\")\n    except:\n        try:",
+        "peekOfCode": "def install_script():\n    \"\"\"Install the script as a command\"\"\"\n    logging.info(\"Installing script as command...\")\n    script_name = 'vid_gif_converter'\n    script_path = Path(__file__).resolve()\n    if platform.system() == \"Linux\" or platform.system() == \"Darwin\":\n        try:\n            subprocess.run(['sudo', 'cp', str(script_path), '/usr/local/bin/' + script_name], check=True)\n            subprocess.run(['sudo', 'chmod', '+x', '/usr/local/bin/' + script_name], check=True)\n            logging.info(f\"Installed {script_name} command successfully!\")",
         "detail": "vid2gif_converter",
         "documentation": {}
     },
@@ -67,7 +102,7 @@
         "kind": 2,
         "importPath": "vid2gif_converter",
         "description": "vid2gif_converter",
-        "peekOfCode": "def convert_videos_to_gifs():\n    print(\"🔄 Converting videos to GIFs...\")\n    for f in os.listdir():\n        if f.lower().endswith(('.mp4', '.webm', '.mkv', '.avi', '.mov', '.wmv', '.flv')):\n            try:\n                subprocess.run(['ffmpeg', '-i', f, '-vf', 'fps=10', '-r', '10', f'{os.path.splitext(f)[0]}.gif'])\n                print(f\"Converted {f} to GIF successfully! 🎉\")\n            except:\n                print(f\"Error converting {f} to GIF. Skipping...\")\nif __name__ == \"__main__\":",
+        "peekOfCode": "def convert_videos_to_gifs(output_dir):\n    print(\"🔄 Converting videos to GIFs...\")\n    for f in os.listdir():\n        if f.lower().endswith(('.mp4', '.webm', '.mkv', '.avi', '.mov', '.wmv', '.flv')):\n            try:\n                output_file = os.path.join(output_dir, os.path.splitext(f)[0] + '.gif')\n                subprocess.run(['ffmpeg', '-i', f, '-vf', 'fps=10', '-r', '10', output_file])\n                print(f\"Converted {f} to GIF successfully! 🎉\")\n            except:\n                print(f\"Error converting {f} to GIF. Skipping...\")",
         "detail": "vid2gif_converter",
         "documentation": {}
     }
