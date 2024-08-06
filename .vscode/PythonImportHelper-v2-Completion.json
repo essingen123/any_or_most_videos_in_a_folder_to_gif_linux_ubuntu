@@ -1,0 +1,92 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "install_ffmpeg",
+        "kind": 2,
+        "importPath": "READMEmd_gen",
+        "description": "READMEmd_gen",
+        "peekOfCode": "def install_ffmpeg():\n    print(\"📹 Installing ffmpeg...\")\n    try:\n        subprocess.run(['sudo', 'apt-get', 'install', 'ffmpeg'], check=True)\n    except:\n        try:\n            subprocess.run(['winget', 'install', 'ffmpeg'], check=True)\n        except:\n            print(\"Unsupported operating system. Please install ffmpeg manually.\")\ndef install_script():",
+        "detail": "READMEmd_gen",
+        "documentation": {}
+    },
+    {
+        "label": "install_script",
+        "kind": 2,
+        "importPath": "READMEmd_gen",
+        "description": "READMEmd_gen",
+        "peekOfCode": "def install_script():\n    print(\"📝 Installing script as command...\")\n    script_name = 'vid_gif_converter'\n    script_path = os.path.abspath(__file__)\n    try:\n        subprocess.run(['sudo', 'cp', script_path, '/usr/local/bin/' + script_name], check=True)\n        subprocess.run(['sudo', 'chmod', '+x', '/usr/local/bin/' + script_name], check=True)\n        print(f\"Installed {script_name} command successfully! 🎉\")\n    except:\n        try:",
+        "detail": "READMEmd_gen",
+        "documentation": {}
+    },
+    {
+        "label": "convert_videos_to_gifs",
+        "kind": 2,
+        "importPath": "READMEmd_gen",
+        "description": "READMEmd_gen",
+        "peekOfCode": "def convert_videos_to_gifs():\n    print(\"🔄 Converting videos to GIFs...\")\n    for f in os.listdir():\n        if f.lower().endswith(('.mp4', '.webm', '.mkv', '.avi', '.mov', '.wmv', '.flv')):\n            try:\n                subprocess.run(['ffmpeg', '-i', f, '-vf', 'fps=10', '-r', '10', f'{os.path.splitext(f)[0]}.gif'])\n                print(f\"Converted {f} to GIF successfully! 🎉\")\n            except:\n                print(f\"Error converting {f} to GIF. Skipping...\")\nif __name__ == \"__main__\":",
+        "detail": "READMEmd_gen",
+        "documentation": {}
+    },
+    {
+        "label": "install_ffmpeg",
+        "kind": 2,
+        "importPath": "vid2gif_converter",
+        "description": "vid2gif_converter",
+        "peekOfCode": "def install_ffmpeg():\n    print(\"📹 Installing ffmpeg...\")\n    try:\n        subprocess.run(['sudo', 'apt-get', 'install', 'ffmpeg'], check=True)\n    except:\n        try:\n            subprocess.run(['winget', 'install', 'ffmpeg'], check=True)\n        except:\n            print(\"Unsupported operating system. Please install ffmpeg manually.\")\ndef install_script():",
+        "detail": "vid2gif_converter",
+        "documentation": {}
+    },
+    {
+        "label": "install_script",
+        "kind": 2,
+        "importPath": "vid2gif_converter",
+        "description": "vid2gif_converter",
+        "peekOfCode": "def install_script():\n    print(\"📝 Installing script as command...\")\n    script_name = 'vid_gif_converter'\n    script_path = os.path.abspath(__file__)\n    try:\n        subprocess.run(['sudo', 'cp', script_path, '/usr/local/bin/' + script_name], check=True)\n        subprocess.run(['sudo', 'chmod', '+x', '/usr/local/bin/' + script_name], check=True)\n        print(f\"Installed {script_name} command successfully! 🎉\")\n    except:\n        try:",
+        "detail": "vid2gif_converter",
+        "documentation": {}
+    },
+    {
+        "label": "convert_videos_to_gifs",
+        "kind": 2,
+        "importPath": "vid2gif_converter",
+        "description": "vid2gif_converter",
+        "peekOfCode": "def convert_videos_to_gifs():\n    print(\"🔄 Converting videos to GIFs...\")\n    for f in os.listdir():\n        if f.lower().endswith(('.mp4', '.webm', '.mkv', '.avi', '.mov', '.wmv', '.flv')):\n            try:\n                subprocess.run(['ffmpeg', '-i', f, '-vf', 'fps=10', '-r', '10', f'{os.path.splitext(f)[0]}.gif'])\n                print(f\"Converted {f} to GIF successfully! 🎉\")\n            except:\n                print(f\"Error converting {f} to GIF. Skipping...\")\nif __name__ == \"__main__\":",
+        "detail": "vid2gif_converter",
+        "documentation": {}
+    }
+]
