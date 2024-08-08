@@ -1,0 +1,6 @@
+kigit.txt
+vid2gif_converter.py
+READMEmd_gen.py
+README.md
+.vscode/PythonImportHelper-v2-Completion.json
+__a__kilian___INCLUDE_FILE_LIST.txt

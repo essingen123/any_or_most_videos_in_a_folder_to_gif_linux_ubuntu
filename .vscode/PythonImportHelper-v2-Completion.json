@@ -75,7 +75,7 @@
         "kind": 2,
         "importPath": "READMEmd_gen",
         "description": "READMEmd_gen",
-        "peekOfCode": "def generate_readme():\n    print(\"📄 Generating README.md...\")\n    readme = \"# Video to GIF Converter 📹\\n\"\n    readme += \"==========================\\n\\n\"\n    readme += \"A simple script to convert videos to GIFs using ffmpeg. 🤖\\n\\n\"\n    readme += \"## Installation 📦\\n\"\n    readme += \"---------------\\n\\n\"\n    readme += \"1. Clone this repository to your local machine.\\n\"\n    readme += \"2. Run the script using `python3 vid_gif_converter.py`.\\n\"\n    readme += \"3. Follow the prompts to install ffmpeg and the script as a command.\\n\\n\"",
+        "peekOfCode": "def generate_readme():\n    print(\"Generating README.md...\")\n    readme = \"# Video to GIF Converter ⚡️\\n\"\n    readme += \"A simple script to convert videos to GIFs using ffmpeg. 📹\\n\\n\"\n    readme += \"## Getting Started 🚀\\n\"\n    readme += \"Clone this repository and run the script using `python3 vid_gif_converter.py`.\\n\"\n    readme += \"Follow the prompts to install ffmpeg and the script as a command. 💻\\n\\n\"\n    readme += \"## Usage 📊\\n\"\n    readme += \"1. Navigate to the directory containing the videos you want to convert. 🗂️\\n\"\n    readme += \"2. Run the `vid_gif_converter` command. 🔄\\n\"",
         "detail": "READMEmd_gen",
         "documentation": {}
     },
